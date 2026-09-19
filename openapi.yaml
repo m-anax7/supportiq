@@ -3,7 +3,7 @@ info:
   title: SupportIQ Chat API
   version: 1.0.0
 paths:
-  /api/chat:
+  /api/chat-v2:
     post:
       operationId: sendMessage
       requestBody:
