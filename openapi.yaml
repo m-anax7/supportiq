@@ -1,0 +1,21 @@
+openapi: 3.0.0
+info:
+  title: SupportIQ Chat API
+  version: 1.0.0
+paths:
+  /api/chat:
+    post:
+      operationId: sendMessage
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [message]
+              properties:
+                message:
+                  type: string
+      responses:
+        '200':
+          description: OK
