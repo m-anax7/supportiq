@@ -1,5 +1,5 @@
 export async function suggestReply(context) {
-  const res = await fetch('/api/chat', {
+  const res = await fetch('/api/chat-v9', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ message: context }),
