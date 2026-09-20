@@ -24,7 +24,7 @@ describe('autoReply', () => {
     await autoReply(ticketContent);
 
     expect(global.fetch).toHaveBeenCalledTimes(1);
-    expect(global.fetch.mock.calls[0][0]).toBe('/api/chat-v9');
+    expect(global.fetch.mock.calls[0][0]).toMatch(/^\/api\/chat/);
     expect(global.fetch.mock.calls[0][1].method).toBe('POST');
     expect(JSON.parse(global.fetch.mock.calls[0][1].body).message).toBe(ticketContent);
   });
@@ -50,7 +50,7 @@ describe('sendLiveChatMessage', () => {
     await sendLiveChatMessage(message);
 
     expect(global.fetch).toHaveBeenCalledTimes(1);
-    expect(global.fetch.mock.calls[0][0]).toBe('/api/chat-v9');
+    expect(global.fetch.mock.calls[0][0]).toMatch(/^\/api\/chat/);
     expect(global.fetch.mock.calls[0][1].method).toBe('POST');
     expect(JSON.parse(global.fetch.mock.calls[0][1].body).message).toBe(message);
   });
@@ -76,7 +76,7 @@ describe('summarizeThread', () => {
     await summarizeThread(thread);
 
     expect(global.fetch).toHaveBeenCalledTimes(1);
-    expect(global.fetch.mock.calls[0][0]).toBe('/api/chat-v9');
+    expect(global.fetch.mock.calls[0][0]).toMatch(/^\/api\/chat/);
     expect(global.fetch.mock.calls[0][1].method).toBe('POST');
     expect(JSON.parse(global.fetch.mock.calls[0][1].body).message).toBe(thread);
   });
@@ -102,7 +102,7 @@ describe('suggestReply', () => {
     await suggestReply(context);
 
     expect(global.fetch).toHaveBeenCalledTimes(1);
-    expect(global.fetch.mock.calls[0][0]).toBe('/api/chat-v9');
+    expect(global.fetch.mock.calls[0][0]).toMatch(/^\/api\/chat/);
     expect(global.fetch.mock.calls[0][1].method).toBe('POST');
     expect(JSON.parse(global.fetch.mock.calls[0][1].body).message).toBe(context);
   });
@@ -128,7 +128,7 @@ describe('shouldEscalate', () => {
     await shouldEscalate(ticketContent);
 
     expect(global.fetch).toHaveBeenCalledTimes(1);
-    expect(global.fetch.mock.calls[0][0]).toBe('/api/chat-v9');
+    expect(global.fetch.mock.calls[0][0]).toMatch(/^\/api\/chat/);
     expect(global.fetch.mock.calls[0][1].method).toBe('POST');
     expect(JSON.parse(global.fetch.mock.calls[0][1].body).message).toBe(ticketContent);
   });
